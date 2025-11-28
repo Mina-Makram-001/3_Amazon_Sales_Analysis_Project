@@ -964,38 +964,7 @@ print(model.summary())
 
 ### Coefficients Table
 
-| Variable                                | coef    | std err | t      | P>|t| | [0.025 | 0.975] |
-| --------------------------------------- | ------- | ------- | ------ | ----- | ------ | ------ |
-| Intercept                               | 3.7601  | 0.134   | 27.993 | 0.000 | 3.496  | 4.024  |
-| C(Cables)                               | 0.5591  | 0.148   | 3.775  | 0.000 | 0.268  | 0.850  |
-| C(Chargers)                             | 0.5814  | 0.191   | 3.047  | 0.002 | 0.207  | 0.956  |
-| C(Headphones)                           | 0.4099  | 0.174   | 2.358  | 0.019 | 0.069  | 0.751  |
-| C(Irons)                                | 0.4489  | 0.168   | 2.669  | 0.008 | 0.119  | 0.779  |
-| C(Kettles&HotWaterDispensers)           | 0.4348  | 0.192   | 2.269  | 0.023 | 0.059  | 0.811  |
-| C(Keyboards,Mice&InputDevices)          | 0.4889  | 0.167   | 2.927  | 0.003 | 0.161  | 0.817  |
-| C(LaptopAccessories)                    | 0.4995  | 0.190   | 2.636  | 0.009 | 0.128  | 0.871  |
-| C(RoomHeaters)                          | 0.1682  | 0.175   | 0.962  | 0.336 | -0.175 | 0.511  |
-| C(SmallKitchenAppliances)               | 0.5748  | 0.146   | 3.945  | 0.000 | 0.289  | 0.861  |
-| C(Smartphones&BasicMobiles)             | 0.3685  | 0.161   | 2.284  | 0.023 | 0.052  | 0.685  |
-| C(Televisions)                          | 0.6507  | 0.173   | 3.751  | 0.000 | 0.310  | 0.991  |
-| C(WaterHeaters&Geysers)                 | 0.5944  | 0.198   | 3.005  | 0.003 | 0.206  | 0.983  |
-| C(WaterPurifiers&Accessories)           | 0.2811  | 0.160   | 1.761  | 0.079 | -0.032 | 0.594  |
-| C(WearableTechnology)                   | 0.2227  | 0.213   | 1.044  | 0.297 | -0.196 | 0.641  |
-| discount_percentage                     | 0.1024  | 0.223   | 0.459  | 0.646 | -0.335 | 0.540  |
-| C(Cables):discount                      | -0.3634 | 0.245   | -1.482 | 0.139 | -0.845 | 0.118  |
-| C(Chargers):discount                    | -0.5210 | 0.348   | -1.497 | 0.135 | -1.204 | 0.162  |
-| C(Headphones):discount                  | -0.5300 | 0.287   | -1.844 | 0.065 | -1.094 | 0.034  |
-| C(Irons):discount                       | -0.4655 | 0.369   | -1.261 | 0.207 | -1.190 | 0.259  |
-| C(Kettles&HotWaterDispensers):discount  | -0.5685 | 0.383   | -1.486 | 0.138 | -1.320 | 0.182  |
-| C(Keyboards,Mice&InputDevices):discount | -0.3161 | 0.307   | -1.031 | 0.303 | -0.918 | 0.286  |
-| C(LaptopAccessories):discount           | -0.3785 | 0.312   | -1.214 | 0.225 | -0.991 | 0.234  |
-| C(RoomHeaters):discount                 | -0.3548 | 0.352   | -1.008 | 0.314 | -1.045 | 0.336  |
-| C(SmallKitchenAppliances):discount      | -0.7882 | 0.255   | -3.095 | 0.002 | -1.288 | -0.288 |
-| C(Smartphones&BasicMobiles):discount    | -0.3252 | 0.431   | -0.755 | 0.451 | -1.171 | 0.520  |
-| C(Televisions):discount                 | -0.6433 | 0.347   | -1.856 | 0.064 | -1.324 | 0.037  |
-| C(WaterHeaters&Geysers):discount        | -0.7233 | 0.388   | -1.865 | 0.063 | -1.485 | 0.038  |
-| C(WaterPurifiers&Accessories):discount  | -0.0787 | 0.288   | -0.273 | 0.785 | -0.644 | 0.487  |
-| C(WearableTechnology):discount          | -0.0419 | 0.323   | -0.130 | 0.897 | -0.675 | 0.591  |
+![visualization](4_Outputs/output12.png)
 
 ### Model Diagnostics
 
