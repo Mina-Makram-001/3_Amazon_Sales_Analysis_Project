@@ -139,7 +139,7 @@ sns.despine()
 ```
 
 ### Results
-![visualization](4_Outputs\output1.png)
+![visualization](4_Outputs/output1.png)
 
 
 ### Insights
