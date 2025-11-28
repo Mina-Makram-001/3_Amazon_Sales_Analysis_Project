@@ -54,9 +54,6 @@ The dataset is well suited for analyzing **pricing behavior, category-level perf
     → (*Hypothesis testing: H₀ = no relationship*)
 
 
-Here is a clean, polished, consistent **Tools Used** section written in the same style as your example, but tailored to your **Amazon Sales Analysis Project**:
-
-
 # **Tools I Used**
 
 * **Python** — the primary tool for cleaning, transforming, analyzing, and visualizing the dataset.
@@ -113,7 +110,7 @@ df['category_clean']= df['category'].apply(lambda x: x.split('|')[-1]).copy()
 
 The analysis aimed to identify the most common product categories in the dataset by examining the frequency of listings for each category. The dataset was first cleaned to remove any missing or inconsistent category entries. Next, the data was grouped by the **category** field, and the total count of products in each category was calculated. After sorting the categories in descending order based on product counts, the top categories were selected for visualization.
 
-A horizontal bar chart was created using Seaborn to display the results, showing categories such as **USBCables, SmartWatches, Smartphones, Smartphones, and SmartTelevisions....** as the most frequent. Each bar represented the total number of products per category, with labels showing the exact counts for clarity. This visualization allowed for a clear comparison, highlighting which product categories dominate the dataset and are most represented among the listings.
+A horizontal bar chart was created using Seaborn to display the results, showing categories such as **USBCables, SmartWatches, Smartphones, and SmartTelevisions....** as the most frequent. Each bar represented the total number of products per category, with labels showing the exact counts for clarity. This visualization allowed for a clear comparison, highlighting which product categories dominate the dataset and are most represented among the listings.
 
 
 View my notebook in details here:
@@ -196,7 +193,7 @@ plt.show()
 
 The analysis aimed to determine which product categories received the highest and lowest average customer ratings. The dataset was grouped by **Category**, and the **mean rating** for each category was calculated. This allowed for a direct comparison across all categories to identify consumer preferences and satisfaction levels.
 
-After sorting the results by average rating, the category **Smart Televisions** emerged with the **highest average rating of 4.21**, indicating strong customer satisfaction. On the other hand, **Smartphones** had the **lowest average rating of 4.10**, suggesting comparatively lower user approval.
+After sorting the results by Average rating, the category **Mice** emerged with the **highest average rating of 4.29**, indicating strong customer satisfaction. On the other hand, **RemoteControls** had the **lowest average rating of 3.80**, suggesting comparatively lower user approval.
 
 
 View my notebook in details here:
@@ -206,34 +203,35 @@ View my notebook in details here:
 ### Visualize data 
 
 ```
-df_concat= df_concat.groupby('category_clean').agg({'discounted_price' : 'mean'
+df_concat_rate= df_concat.groupby('category_clean').agg({'discounted_price' : 'mean'
                                          ,'discount_percentage' : 'mean'
-                                         ,'rating' : 'mean'}).sort_values(by= 'discounted_price', ascending= False)
-df_concat
+                                         ,'rating' : 'mean'}).sort_values(by= 'rating', ascending= False)
+df_concat_rate
 ```
 
 
 ### Results
 
-| Category            | Average Discounted Price ($) | Average Discount Percentage | Average Rating |
-|--------------------|-----------------------------|----------------------------|----------------|
-| SmartTelevisions    | 24,851.79                   | 38.29%                     | 4.21           |
-| Smartphones        | 15,757.61                   | 23.25%                     | 4.10           |
-| MixerGrinders      | 3,004.80                    | 43.96%                     | 4.01           |
-| SmartWatches       | 2,344.34                    | 69.82%                     | 4.03           |
-| In-Ear             | 975.19                      | 58.27%                     | 3.98           |
-| DryIrons           | 762.69                      | 34.25%                     | 4.13           |
-| Mice               | 610.01                      | 42.04%                     | 4.29           |
-| RemoteControls     | 430.87                      | 59.51%                     | 3.80           |
-| HDMICables         | 405.99                      | 59.79%                     | 4.25           |
-| USBCables          | 360.60                      | 59.38%                     | 4.15           |
+| category_clean       | discounted_price | discount_percentage | rating   |
+|---------------------|----------------|------------------|---------|
+| Mice                | 610.011667     | 0.420417         | 4.2875  |
+| HDMICables          | 405.993333     | 0.597917         | 4.254167|
+| SmartTelevisions    | 24851.793810   | 0.382857         | 4.209524|
+| USBCables           | 360.598618     | 0.593777         | 4.151931|
+| DryIrons            | 762.687083     | 0.342500         | 4.129167|
+| Smartphones         | 15757.606912   | 0.232941         | 4.1     |
+| SmartWatches        | 2344.341842    | 0.698158         | 4.025   |
+| MixerGrinders       | 3004.804074    | 0.439630         | 4.011111|
+| In-Ear              | 975.187885     | 0.582692         | 3.898077|
+| RemoteControls      | 438.868776     | 0.595102         | 3.8     |
+
 
 
 ### Insights
 
 * **Observation:** Products with the highest discounts are not necessarily the highest-rated or most expensive. For example, **SmartWatches** and **USBCables** have some of the highest average discount percentages (69.82% and 59.38%), but their average ratings are moderate (4.03 and 4.15). Conversely, **Mice** and **HDMICables** have slightly lower discounted prices but higher ratings (4.29 and 4.25).
 
-* **Interpretation:** Customers may value quality (rating) over price in some categories, especially for tech accessories like **Mice** and **HDMICables**, while products like **SmartWatches** rely more on discounting to attract buyers.
+* **Interpretation:** Customers may value quality (rating) over price in some categories.
 
 
 ## 4. What is the **distribution of product ratings** (1–5 stars)?
@@ -365,8 +363,6 @@ plt.show()
 
 The analysis shows that **63.9%** of products have an average rating **above** the overall mean rating.
 
-* **Conclusion:** Most products receive better-than-average ratings, confirming high overall customer satisfaction.
-
 
 ## 6. Who are the **top reviewers** (users with the most reviews)?
 
@@ -391,106 +387,10 @@ df_grouped= df.groupby('user_name_clean')[['user_id', 'category_clean']].value_c
 df_grouped.reset_index().drop(columns='index')
 ```
 
+
 ### Results
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>user_name_clean</th>
-      <th>user_id</th>
-      <th>category_clean</th>
-      <th>count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>$@|\|TO$|-|, Sethu madhav</td>
-      <td>AHIKJUDTVJ4T6DV6IUGFYZ5LXMPA,AE55KTFVNXYFD5FPY...</td>
-      <td>USBCables</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Manav, Adarsh gupta</td>
-      <td>AG3D6O4STAQKAY2UVGEUV46KN35Q,AHMY5CWJMMK5BJRBB...</td>
-      <td>USBCables</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Satheesh Kadiam, Pritom Chakraborty</td>
-      <td>AGAELRYPMTG5SADZPDYB343EASAA,AGFN4JODOM2NTFCJQ...</td>
-      <td>Smartphones</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Omkar dhale, JD</td>
-      <td>AEWAZDZZJLQUYVOVGBEUKSLXHQ5A,AG5HTSFRRE6NL3M5S...</td>
-      <td>USBCables</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>ArdKn, Nirbhay kumar</td>
-      <td>AECPFYFQVRUWC3KGNLJIOREFP5LQ,AGYYVPDD7YG7FYNBX...</td>
-      <td>USBCables</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Prashant, Sumesh Sundararajan</td>
-      <td>AG44HJB2AMIVHAGQZ2WGWONERKCA,AHL2FABQV6XAHZN54...</td>
-      <td>MicroSD</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>siddharth patnaik, Dr Sunilkumar H</td>
-      <td>AHWRZWPCTG6ICA7WTNLNNZXWFI5Q,AF2AASVYVSROFD7FX...</td>
-      <td>Smartphones</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Actual user, Shanti lal Gurjar</td>
-      <td>AGU76WKSU62DUNTPCMTC4FCUNRTQ,AEOVR6JEQTAC77BXE...</td>
-      <td>USBCables</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Manoj maddheshiya, Manoj Kumar Sahoo</td>
-      <td>AHEVOQADJSSRX7DS325HSFLMP7VQ,AG7XYZRCSKX6G2OLO...</td>
-      <td>SmartTelevisions</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>Ayush, ROHIT A.</td>
-      <td>AFSMISGEYDYIP3Z42UTQU4AKOYZQ,AF5ILQY4KFDTO5XHH...</td>
-      <td>SmartTelevisions</td>
-      <td>5</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+![visualization](4_Outputs/output13.png)
 
 
 ## 7. What are the **most frequent words** in review titles or review content?
@@ -648,9 +548,14 @@ print("p-value:", p)
 
 #------------------------------------------------------------------------#
 
-sns.set_theme(style="whitegrid")
+bins = 10
+bin_edges = np.linspace(0, 25000, bins + 1)  # +1 because edges = bins+1
 
-sns.histplot(data=df_sorted, x='price_diff', bins=30, kde=True)
+sns.set_theme(style="whitegrid")
+sns.histplot(data=df_sorted, x='price_diff', bins=bin_edges, kde=True)
+
+plt.xticks(bin_edges, rotation=45) 
+
 plt.xlim(0, 25000)
 plt.title('Price Difference (Actual - Discounted)')
 plt.xlabel('Price Difference')
@@ -902,27 +807,37 @@ plt.show()
 
 ### Insights
 
-The analysis segmented product categories by **Rating Level** (High, Mid, Low) and **Discount Level** (High, Mid, Low) to identify key market positions across five performance tiers.
+#### Rating & Discount Levels
 
-**Definition of Rating and Discount Levels**
+**Discount Levels:**
 
-The assignment of categories was based on the following thresholds:
+* **High:** ≥70%
+* **Mid:** 50%–70%
+* **Low:** <50%
 
-* **Discount Level Thresholds:** **High** is $\ge 70\%$, **Mid** is between $25\%$ and $70\%$, and **Low** is $< 25\%$.
-* **Rating Level Thresholds:** **High** is $\ge 4.0$, **Mid** is between $3.5$ and $4.0$, and **Low** is $< 3.5$.
+**Rating Levels:**
 
-**Segment Insights**
+* **High:** ≥4.0
+* **Mid:** 3.5–4.0
+* **Low:** <3.5
 
-* **High Performance Segments**
-    * **High Rating & High Discount:** This is the **ideal value proposition**. Categories like **Cables** and **Wearable Technology** lead this group, achieving high customer satisfaction coupled with aggressive pricing.
-    * **Mid/High Rating & Mid/High Discount:** This segment represents the highest **volume** of products. Categories like **Cables** and **Small Kitchen Appliances** offer good perceived value and drive significant transactions.
 
-* **Mid-Range and Risk Segments**
-    * **Mid Rating & Mid Discount:** Categories like **Small Kitchen Appliances** and **Accessories** fall here, representing an **average offer** with moderate satisfaction and pricing.
-    * **Low Rating & Mid/Low Discount:** This is the **risk zone**. Categories such as **Accessories** and **Smartphones** have poor quality perception or insufficient discounts to motivate buyers, suggesting product quality may be weak despite fair pricing.
+### Segment Insights
 
-* **Low Performance Segment**
-    * **Low Rating & Low Discount:** This is the **worst-performing segment**. Categories like **Printers** and **Vacuums** are weak in both customer satisfaction and pricing attractiveness, making them liabilities.
+#### High Performance
+
+* **High Rating + High Discount:** Strong customer satisfaction and strong price appeal. Cables lead; Wearables and Accessories follow.
+* **High Rating + Mid Discount / Mid Rating + High Discount:** Largest strong segment. Cables dominate; Headphones and Small Appliances also perform well.
+
+#### Mid Range
+
+* **High Rating + Low Discount / Low Rating + High Discount:** Mixed performance. Small Appliances, Smartphones, and TVs rely more on product value than discounts.
+* **Mid Rating + Mid Discount:** Average appeal with moderate satisfaction and pricing.
+
+#### Low Performance
+
+* **Low Rating + Mid Discount / Mid Rating + Low Discount:** Weak value; mainly Small Appliances and Room Heaters.
+* **Low Rating + Low Discount:** Poorest segment. Room Heaters, Accessories, Printers, and Network Adapters perform worst.
 
 
 ## 13. Are there specific **categories** where discounts have **no effect** on customer satisfaction?
@@ -955,11 +870,11 @@ print(model.summary())
 
 **OLS Regression Results**
 
-**R-squared:** 0.179
-**Adjusted R-squared:** 0.155
-**F-statistic:** 7.536
-**Prob (F-statistic):** 1.63e-27
-**No. Observations:** 1032
+* **R-squared:** 0.179
+* **Adjusted R-squared:** 0.155
+* **F-statistic:** 7.536
+* **Prob (F-statistic):** 1.63e-27
+* **No. Observations:** 1032
 
 
 ### Coefficients Table
