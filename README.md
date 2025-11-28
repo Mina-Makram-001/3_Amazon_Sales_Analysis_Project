@@ -139,7 +139,7 @@ sns.despine()
 ```
 
 ### Results
-![visualization](4_outputs\output1.png)
+![visualization](4_Outputs\output1.png)
 
 
 ### Insights
@@ -182,7 +182,7 @@ plt.show()
 
 
 ### Results
-![visualization](4_outputs/output2.png)
+![visualization](4_Outputs/output2.png)
 
 
 ### Insights
@@ -290,7 +290,7 @@ plt.show()
 
 
 ### Results
-![visualization](4_outputs/output3.png)
+![visualization](4_Outputs/output3.png)
 
 
 ### Insights
@@ -358,7 +358,7 @@ plt.show()
 
 
 ### Results
-![visualization](4_outputs/output4.png)
+![visualization](4_Outputs/output4.png)
 
 
 ### Insights
@@ -544,7 +544,7 @@ plt.show()
 ```
 
 ### Results
-![visualization](4_outputs/output5.png)
+![visualization](4_Outputs/output5.png)
 
 
 ### Insights
@@ -607,7 +607,7 @@ plt.show()
 * *Correlation coefficient: 0.0691880513483714*
 * *p-value: 0.008070425293893131*
 
-![visualization](4_outputs/output6.png)
+![visualization](4_Outputs/output6.png)
 
 
 ### Insights
@@ -665,7 +665,7 @@ plt.show()
 * *t-statistic: 19.074171006227292*
 * *p-value: 3.053503199093073e-72*
 
-![visualization](4_outputs/output7.png)
+![visualization](4_Outputs/output7.png)
 
 
 ### Insights
@@ -725,7 +725,7 @@ plt.show()
 * **Correlation coefficient: 0.10454163231782487**
 * **p-value: 0.00436239441164251**
 
-![visualization](4_outputs/output8.png)
+![visualization](4_Outputs/output8.png)
 
 
 ### Insights
@@ -811,7 +811,7 @@ plt.show()
 | SmartWatches | USBCables   | 0.1282   | 0.0000 | 0.0595   | 0.1970   | True   |
 | Smartphones  | USBCables   | 0.0532   | 0.1889 | -0.0184  | 0.1249   | False  |
 
-![visualization](4_outputs/output9.png)
+![visualization](4_Outputs/output9.png)
 
 
 ### Insights
@@ -897,7 +897,7 @@ plt.show()
 
 
 ### Results
-![visualization](4_outputs/output10.png)
+![visualization](4_Outputs/output10.png)
 
 
 ### Insights
@@ -1063,7 +1063,7 @@ plt.show()
 * **Correlation coefficient: -0.1433272669450551**
 * **p-value: 3.788508461971801e-06**
 
-![visualization](4_outputs/output11.png)
+![visualization](4_Outputs/output11.png)
 
 
 ### Insights
@@ -1084,8 +1084,85 @@ The practical implication is that **discount percentage is not a reliable predic
 
 # What I Learned
 
+Throughout this project, I gained a deep understanding of **product analytics**, **customer behavior**, and **data visualization techniques**. The key skills and insights I developed include:
+
+### **1. Data Cleaning & Preparation**
+
+* Learned how to merge and clean datasets from multiple sources.
+* Standardized category names, reviewer names, and missing data.
+* Extracted meaningful numerical features such as rating distributions and review counts.
+
+### **2. Exploratory Data Analysis (EDA)**
+
+* Conducted in-depth statistical analysis using **mean**, **median**, **quartiles**, and distribution plots.
+* Identified rating patterns and discovered that customer ratings are highly concentrated between **4.0 and 4.3 stars**.
+
+### **3. Data Visualization**
+
+* Built clear and informative visualizations using **Matplotlib**, **Seaborn**, and **Pandas**.
+* Created histograms, KDE curves, boxplots, pie charts, and bar charts.
+* Enhanced charts with labeled percentiles, annotations, and meaningful titles.
+
+### **4. Sentiment & Text Analysis**
+
+* Processed review text by tokenizing, cleaning, and removing stopwords.
+* Extracted the most frequent **positive** and **negative** words.
+* Learned how customer sentiment aligns with product performance.
+
+### **5. Customer Insights & Behavioral Patterns**
+
+* Identified the **top reviewers** and the categories they contribute to most.
+* Discovered that **63.9% of products** receive a rating above the global mean.
+* Understood how review frequency and rating distribution reflect customer satisfaction.
+
+### **6. Report Writing & Storytelling with Data**
+
+* Improved my ability to explain findings clearly.
+* Structured insights into a logical, easy-to-read narrative.
+* Converted raw analysis into actionable conclusions.
+
 
 # Challenges I Faced
 
+Throughout the project, I encountered several technical and analytical challenges that helped me improve my skills and deepen my understanding of real-world data work.
+
+### **1. Cleaning and Standardizing the Data**
+
+* The dataset contained inconsistent **reviewer names**, duplicated entries, and mixed formatting.
+* Some fields required manual logic to correctly merge or simplify user names.
+* Dealing with missing values and irregular text formats required careful preprocessing.
+
+### **2. Handling Large and Noisy Text Data**
+
+* Review content varied greatly in length and clarity.
+* Cleaning text (removing punctuation, stopwords, and noise) took significant effort.
+* Extracting meaningful words while avoiding common filler terms required multiple iterations.
+
+### **3. Visualizing Complex Insights**
+
+* Combining a histogram, KDE curve, and boxplot in a clear way required testing several layout options.
+* Ensuring that the visuals communicated the exact story (like showing quartiles and mean values) needed multiple refinements.
+
+### **4. Grouping Reviewers Accurately**
+
+* Many reviewers had multiple identifiers or variations of their names.
+* Creating the `user_name_clean` field to correctly group them was challenging but essential.
+
+### **5. Sentiment Interpretation**
+
+* Separating **positive** and **negative** words from thousands of tokens was not straightforward.
+* Some words could be either positive or negative depending on context, requiring careful filtering.
+
+### **6. Maintaining Notebook Organization**
+
+* The analysis consisted of multiple stages (ratings, reviews, text processing).
+* Keeping the notebook structured and readable required consistent documentation and commenting.
+
 
 # Conclusion
+
+This project provided a comprehensive exploration of product ratings, customer reviews, and user behavior across multiple categories. Through detailed statistical analysis, text processing, and visualization, the findings highlight strong overall customer satisfaction, with ratings tightly concentrated around 4.0–4.3 stars. A majority of products perform above the average rating, demonstrating consistent quality across the catalog.
+
+The analysis also revealed valuable insights into customer sentiment: positive feedback overwhelmingly focuses on product quality, usability, and value, while negative comments are more specific, often relating to isolated technical issues or durability concerns. Identifying the most active reviewers and the most frequently used words further helped uncover key behavior patterns and product usage themes.
+
+Overall, the project strengthened essential data skills—including cleaning, visualization, statistical analysis, and natural language processing—while producing actionable insights that can support product evaluation, customer experience improvements, and business decision-making.
